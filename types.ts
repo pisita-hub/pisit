@@ -19,11 +19,18 @@ export interface ActivityDetail {
   evaluationMetrics: string[];
 }
 
-export type TargetGroup = 'children' | 'elderly' | 'hospital' | 'public' | 'school' | 'online';
+export interface SavedActivity extends ActivityDetail {
+  id: string;
+  savedAt: number;
+  targetGroupLabel?: string;
+}
+
+export type TargetGroup = 'children' | 'elderly' | 'hospital' | 'public' | 'school' | 'online' | 'university';
 
 export const TARGET_GROUPS: { id: TargetGroup; label: string; icon: string }[] = [
   { id: 'children', label: 'เด็กเล็ก/อนุบาล', icon: '👶' },
   { id: 'school', label: 'นักเรียนมัธยม', icon: '🎒' },
+  { id: 'university', label: 'มหาวิทยาลัย', icon: '🎓' },
   { id: 'elderly', label: 'ผู้สูงอายุ', icon: '👴' },
   { id: 'hospital', label: 'ผู้ป่วยในโรงพยาบาล', icon: '🏥' },
   { id: 'public', label: 'ชุมชนทั่วไป/สวนสาธารณะ', icon: '🌳' },
